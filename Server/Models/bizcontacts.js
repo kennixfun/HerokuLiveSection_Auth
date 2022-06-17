@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const Schema = mongoose_1.default.Schema;
-const BizContactsSchema = new Schema({
+const bizContactsSchema = new Schema({
     Name: String,
     Year: String,
     Director: String,
@@ -13,6 +13,6 @@ const BizContactsSchema = new Schema({
 }, {
     collection: "bizcontacts"
 });
-const Model = mongoose_1.default.model("Business Contacts", BizContactsSchema);
+const Model = mongoose_1.default.model("Business Contacts", bizContactsSchema);
 exports.default = Model;
 //# sourceMappingURL=bizcontacts.js.map

@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DisplayBizContactsList = void 0;
-const bizcontacts_1 = __importDefault(require("../Models/bizcontacts"));
+const movie_1 = __importDefault(require("../Models/bizcontacts"));
 const Util_1 = require("../Util");
 function DisplayBizContactsList(req, res, next) {
-    bizcontacts_1.default.find(function (err, bizContactsCollection) {
+    movie_1.default.find(function (err, bizContactsCollection) {
         if (err) {
             console.error(err);
             res.end(err);
