@@ -1,0 +1,27 @@
+{
+    "bizcontacts":
+    [
+        {
+            "FirstName": "Mark",
+            "LastName": "Windmill",
+            "Company": "Asia Miles Limited",
+            "Position": "Chief Financial Officer",
+            "LinkedIn": "https://www.linkedin.com/in/mark-windmill-97705225/",
+            ""
+        },
+        {
+            "FirstName": "Kevin",
+            "LastName": "Li",
+            "Company": "Asia Miles Limited",
+            "Position": "Senior FP&A Manager",
+            "LinkedIn": "https://www.linkedin.com/in/kevinyhl/"
+        },
+        {
+            "FirstName": "Everything Everywhere All at Once",
+            "LastName": "2022",
+            "Company": "Dan Kwan",
+            "Position": "5.0 Stars",
+            "LinkedIn": ""
+        }
+    ]
+}
