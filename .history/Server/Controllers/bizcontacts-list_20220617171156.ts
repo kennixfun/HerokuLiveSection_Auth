@@ -19,5 +19,5 @@ export function DisplayBizContactsList(req: express.Request, res: express.Respon
 
 export function DisplayEditPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
-    res.render('index', { title: 'Edit Business Contacts' , page: 'edit', displayName: UserDisplayName(req)});
+    res.render('index', { title: 'Edit' , page: 'edit', displayName: UserDisplayName(req)});
 }
