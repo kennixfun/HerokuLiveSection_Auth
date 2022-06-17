@@ -14,5 +14,5 @@ export function DisplayBizContactsList(req: express.Request, res: express.Respon
             res.end(err);
         }
         res.render('index', {title: 'Business Contacts List', page: 'bizcontacts-list', bizcontacts: bizContactsCollection, displayName: UserDisplayName(req)});
-    }).sort({FirstName: 1});
+    }).sort('FirstName');
 }
