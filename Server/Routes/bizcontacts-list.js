@@ -10,8 +10,8 @@ const bizcontacts_list_1 = require("../Controllers/bizcontacts-list");
 router.get('/bizcontacts-list', index_1.AuthGuard, bizcontacts_list_1.DisplayBizContactsList);
 router.get('/add', index_1.AuthGuard, bizcontacts_list_1.DisplayAddPage);
 router.get('/edit/:id', index_1.AuthGuard, bizcontacts_list_1.DisplayEditPage);
-router.get('/add', index_1.AuthGuard, bizcontacts_list_1.ProcessAddPage);
-router.get('/edit/:id', index_1.AuthGuard, bizcontacts_list_1.ProcessEditPage);
+router.post('/add', index_1.AuthGuard, bizcontacts_list_1.ProcessAddPage);
+router.post('/edit/:id', index_1.AuthGuard, bizcontacts_list_1.ProcessEditPage);
 router.get('/delete/:id', index_1.AuthGuard, bizcontacts_list_1.ProcessDeletePage);
 exports.default = router;
 //# sourceMappingURL=bizcontacts-list.js.map
