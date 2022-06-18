@@ -13,45 +13,33 @@ function DisplayBizContactsList(req, res, next) {
             res.end(err);
         }
         res.render('index', { title: 'Business Contacts List', page: 'bizcontacts-list', bizcontacts: bizContactsCollection, displayName: (0, Util_1.UserDisplayName)(req) });
-    }).sort({FirstName: 1});
+    }).sort({ FirstName: 1 });
 }
 exports.DisplayBizContactsList = DisplayBizContactsList;
-function DisplayAddPage (req, res, next)
-{
-    res.render('index', {title: 'Add', page: 'edit', bizcontacts: '', displayName: (0, Util_1.UserDisplayName)(req)});
+function DisplayAddPage(req, res, next) {
+    res.render('index', { title: 'Add', page: 'edit', bizcontacts: '', displayName: (0, Util_1.UserDisplayName)(req) });
 }
 exports.DisplayAddPage = DisplayAddPage;
-function DisplayAddPage (req, res, next)
-{
-    res.render('index', {title: 'Add', page: 'edit', bizcontacts: '', displayName: (0, Util_1.UserDisplayName) (req)});
-}
-exports.DisplayAddPage = DisplayAddPage;
-function DisplayEditPage (req, res, next)
-{
+function DisplayEditPage(req, res, next) {
     let id = req.params.id;
-    bizcontacts_1.default.findById(id, {}, {}, function (err, bizcontactsToEdit)
-    {
-        if (err)
-        {
+    bizcontacts_1.default.findById(id, {}, {}, function (err, bizcontactsToEdit) {
+        if (err) {
             console.error(err);
             res.end(err);
         }
-        res.render('index', {title: 'Edit', page: 'edit', bizcontacts: bizcontactsToEdit, displayName: (0, Util_1.UserDisplayName)(req)});
+        res.render('index', { title: 'Edit', page: 'edit', bizcontacts: bizcontactsToEdit, displayName: (0, Util_1.UserDisplayName)(req) });
     });
 }
 exports.DisplayEditPage = DisplayEditPage;
-function ProcessAddPage(req, res, next)
-{
-    let newBizcontacts = new bizcontacts_1.default({
+function ProcessAddPage(req, res, next) {
+    let newBizcontact = new bizcontacts_1.default({
         "FirstName": req.body.bizFirstName,
         "LastName": req.body.bizLastName,
         "EmailAddress": req.body.bizEmailAddress,
         "Phone": req.body.bizPhone
     });
-    bizcontacts_1.default.create(newBizcontacts, function(err)
-    {
-        if (err)
-        {
+    bizcontacts_1.default.create(newBizcontact, function (err) {
+        if (err) {
             console.error(err);
             res.end(err);
         }
@@ -59,8 +47,7 @@ function ProcessAddPage(req, res, next)
     });
 }
 exports.ProcessAddPage = ProcessAddPage;
-function ProcessEditPage (req, res, next)
-{
+function ProcessEditPage(req, res, next) {
     let id = req.params.id;
     let updateBizcontacts = new bizcontacts_1.default({
         "_id": id,
@@ -69,15 +56,19 @@ function ProcessEditPage (req, res, next)
         "EmailAddress": req.body.bizEmailAddress,
         "Phone": req.body.bizPhone
     });
+    bizcontacts_1.default.updateOne({ _id: id }, updateBizcontacts, function (err) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect('/bizcontacts-list');
+    });
 }
 exports.ProcessEditPage = ProcessEditPage;
-function ProcessDeletePage (req, res, next)
-{
+function ProcessDeletePage(req, res, next) {
     let id = req.params.id;
-    bizcontacts_1.default.remove({ _id: id}, function (err)
-    {
-        if (err)
-        {
+    bizcontacts_1.default.remove({ _id: id }, function (err) {
+        if (err) {
             console.error(err);
             res.end(err);
         }
@@ -85,5 +76,4 @@ function ProcessDeletePage (req, res, next)
     });
 }
 exports.ProcessDeletePage = ProcessDeletePage;
-
 //# sourceMappingURL=bizcontacts-list.js.map

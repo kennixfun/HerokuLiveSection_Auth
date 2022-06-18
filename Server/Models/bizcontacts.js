@@ -9,7 +9,7 @@ const bizContactsSchema = new Schema({
     FirstName: String,
     LastName: String,
     EmailAddress: String,
-    Phone: String
+    Phone: String,
 }, {
     collection: "bizcontacts"
 });

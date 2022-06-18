@@ -7,15 +7,12 @@ exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.ProcessLoginPa
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../Models/user"));
 const Util_1 = require("../Util");
-
 function DisplayLoginPage(req, res, next) {
-    if (!req.user)
-    {
+    if (!req.user) {
         return res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: (0, Util_1.UserDisplayName)(req) });
     }
     return res.redirect('/bizcontacts-list');
 }
-
 exports.DisplayLoginPage = DisplayLoginPage;
 function DisplayRegisterPage(req, res, next) {
     if (!req.user) {
@@ -23,7 +20,6 @@ function DisplayRegisterPage(req, res, next) {
     }
     return res.redirect('/bizcontacts-list');
 }
-
 exports.DisplayRegisterPage = DisplayRegisterPage;
 function ProcessLoginPage(req, res, next) {
     passport_1.default.authenticate('local', function (err, user, info) {
@@ -44,7 +40,6 @@ function ProcessLoginPage(req, res, next) {
         });
     })(req, res, next);
 }
-
 exports.ProcessLoginPage = ProcessLoginPage;
 function ProcessRegisterPage(req, res, next) {
     let newUser = new user_1.default({
@@ -69,7 +64,6 @@ function ProcessRegisterPage(req, res, next) {
         });
     });
 }
-
 exports.ProcessRegisterPage = ProcessRegisterPage;
 function ProcessLogoutPage(req, res, next) {
     req.logOut(function (err) {
